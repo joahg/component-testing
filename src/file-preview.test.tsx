@@ -1,9 +1,10 @@
-import { render, screen } from '@testing-library/react'
+import { page } from '@vitest/browser/context'
+import { render } from 'vitest-browser-react'
 import { FilePreview } from './file-preview.tsx'
 
-test('displays the preview card', () => {
+test('displays the preview card', async () => {
 	render(<FilePreview file={new File(['hello world'], 'file.txt')} />)
 
-	expect(screen.getByText('file.txt')).toBeTruthy()
-	expect(screen.getByText('hello world')).toBeTruthy()
+	await expect.element(page.getByText('file.txt')).toBeVisible()
+	await expect.element(page.getByText('hello world')).toBeVisible()
 })

@@ -24,6 +24,7 @@ export default defineConfig({
 					include: ['**/*.browser.test.ts(x)?'],
 					browser: {
 						enabled: true,
+						headless: true,
 						provider: 'playwright',
 						instances: [
 							{
